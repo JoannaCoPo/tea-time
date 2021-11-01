@@ -36,6 +36,7 @@ group :development, :test do
   gem 'json'
   gem 'webmock'
   gem 'vcr'
+  gem 'shoulda-matchers'
   gem 'database_cleaner'
   gem 'simplecov', require: false
 end
