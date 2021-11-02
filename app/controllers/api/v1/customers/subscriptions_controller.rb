@@ -6,10 +6,20 @@ class Api::V1::Customers::SubscriptionsController < ApplicationController
     end
   end
 
-  def destroy
+  def index
+    if find_customer # maybe look into before_action for refactor?
+      if @customer.subscriptions.count > 0
+        render json: SubscriptionSerializer.new(@customer.subscriptions), status: :created
+      end
+      # add error handling for if none are found
+    end
+  end
+
+  def update
     if find_customer
       subscription = @customer.subscriptions.find(params[:id])
-      subscription.delete
+      subscription.update(subscription_params)
+      render json: SubscriptionSerializer.new(subscription), status: :ok
     end
     # add error handling - if subscription is nil maybe?
     # maybe some sort of message? "subscrition has been cancelled" etc.
@@ -28,6 +38,6 @@ class Api::V1::Customers::SubscriptionsController < ApplicationController
   end
 
   def subscription_params
-    params.permit(:customer_id, :title, :price, :frequency, :tea_id)
+    params.permit(:customer_id, :title, :price, :status, :frequency, :tea_id)
   end
 end
