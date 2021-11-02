@@ -1,14 +1,23 @@
 class Api::V1::Customers::SubscriptionsController < ApplicationController
   def create
-    # if Tea.find(params[:tea_id]) && Customer.find(params[:id])
     if find_customer && find_tea
       subscription = @customer.subscriptions.create!(subscription_params)
       render json: SubscriptionSerializer.new(subscription), status: :created
     end
   end
 
+  def destroy
+    if find_customer
+      subscription = @customer.subscriptions.find(params[:id])
+      subscription.delete
+    end
+    # add error handling - if subscription is nil maybe?
+    # maybe some sort of message? "subscrition has been cancelled" etc.
+  end
+
+  private
+
   def find_customer
-    # require "pry"; binding.pry
     @customer = Customer.find_by(id: params[:customer_id])
     # add error handling
   end
