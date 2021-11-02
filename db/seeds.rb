@@ -27,7 +27,6 @@ end
    Customer.all.sample.subscriptions.create(
      title: Faker::Subscription.plan,
      price: Faker::Commerce.price,
-     status: Faker::Nation.nationality,
      frequency: Faker::Number.between(from: 0, to: 2),
      tea_id: Tea.all.sample.id
    )
