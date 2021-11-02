@@ -23,7 +23,7 @@ describe 'user creation request' do
       expect(subscription[:data][:type]).to eq('subscription')
       expect(data[:title]).to eq(tea.name)
       expect(data[:price]).to eq(24.99)
-      # expect(data[:status]).to eq(0)  # why is this nil vs default 0?
+      expect(data[:status]).to eq("active") 
       expect(data[:frequency]).to eq('biannually')
       expect(data[:customer_id]).to eq(customer.id)
       expect(data[:tea_id]).to eq(tea.id)
