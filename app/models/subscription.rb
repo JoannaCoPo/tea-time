@@ -4,6 +4,8 @@ class Subscription < ApplicationRecord
 
   enum status: [:active, :cancelled]
   enum frequency: [:biweekly, :monthly, :biannually]
+
+  validates_presence_of :title, :price, :status, :frequency, :customer_id, :tea_id
 end
 
-# consider validations, maybe presence of both the customer and tea ids?
+# consider validation - prevent duplicate subscriptions
