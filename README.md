@@ -46,7 +46,7 @@ Find the [project spec here](https://mod4.turing.edu/projects/take_home/take_hom
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 ### Endpoints
-#### Background Image for a City
+#### Create a tea subscription for a customer
 
 | Method   | URI                                      | Description                              |
 | -------- | ---------------------------------------- | ---------------------------------------- |
@@ -67,6 +67,43 @@ Find the [project spec here](https://mod4.turing.edu/projects/take_home/take_hom
             "tea_id": 5
         }
     }
+}
+```
+
+#### Cancel a customer’s tea subscription
+
+| Method   | URI                                      | Description                              |
+| -------- | ---------------------------------------- | ---------------------------------------- |
+| `PATCH`    | `/api/v1//customers/:customer_id/subscriptions/:id`| Cancels a customer subscription in the database and returns subscription attributes with the updated status |
+
+##### Example:  
+```
+{
+    "data": {
+        "id": "8",
+        "type": "subscription",
+        "attributes": {
+            "title": "Sun Moon Lake",
+            "price": 24.99,
+            "status": "cancelled",
+            "frequency": "biannually",
+            "customer_id": 5,
+            "tea_id": 5
+        }
+    }
+}
+```
+
+#### View all of a customer’s subsciptions, of active and cancelled status
+
+| Method   | URI                                      | Description                              |
+| -------- | ---------------------------------------- | ---------------------------------------- |
+| `GET`    | `/api/v1//customers/:customer_id/subscriptions`| Returns all tea subscriptions for a given customer |
+
+##### Example:  
+```
+{
+
 }
 ```
 
