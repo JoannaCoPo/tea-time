@@ -47,9 +47,21 @@ describe 'request to create a user subscription' do
       expect(response.status).to eq(400)
       expect(subscription[:errors]).to eq("Validation failed: Price can't be blank")
     end
+
+    it 'returns an error if a tea does not exist' do
+      customer = create(:customer)
+      body = { "tea_id": 100,
+                "title": 'Nonexistent Tea',
+                "frequency": 2
+              }
+      headers = { 'Content-Type': 'application/json' }
+
+      post "/api/v1/customers/#{customer.id}/subscriptions", headers: headers, params: body.to_json
+      subscription = JSON.parse(response.body, symbolize_names: true)
+
+      expect(response).to_not be_successful
+      expect(response.status).to eq(404)
+      expect(subscription[:errors]).to eq("Tea variety not found")
+    end
   end
 end
-
-# Add coverage for:
-# returns error if tea does not exsit
-# returns error if customer tries to create a duplicate subscription
