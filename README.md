@@ -4,6 +4,7 @@
 [via GIPHY](https://media.giphy.com/media/WQMgnHWQdyZjO/giphy.gif)
 
 ### A Rails API for a fictional Tea Subscription Service.
+##### Created in an 8-hour time frame for a take-home challenge; find the [project spec here](https://mod4.turing.edu/projects/take_home/take_home_be).
 
 #### Framework
 <p>
@@ -35,7 +36,7 @@
 2. Install gem packages: `bundle install`
 3. Set up the database: `rails db:{drop,create,migrate,seed}`
 
-Find the [project spec here](https://mod4.turing.edu/projects/take_home/take_home_be)
+### Find the [project spec here](https://mod4.turing.edu/projects/take_home/take_home_be)
 
 ### [Schema Design](https://dbdiagram.io)
 
@@ -146,21 +147,3 @@ Find the [project spec here](https://mod4.turing.edu/projects/take_home/take_hom
   * Listening on tcp://localhost:3000
   Use Ctrl-C to stop
     ```
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
