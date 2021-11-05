@@ -104,7 +104,44 @@
 ##### Example:  
 ```
 {
-
+    "data": [
+        {
+            "id": "10",
+            "type": "subscription",
+            "attributes": {
+                "title": "Sun Moon Lake",
+                "price": 24.99,
+                "status": "active",
+                "frequency": "monthly",
+                "customer_id": 1,
+                "tea_id": 5
+            }
+        },
+        {
+            "id": "13",
+            "type": "subscription",
+            "attributes": {
+                "title": "Black Tea Mix",
+                "price": 24.99,
+                "status": "active",
+                "frequency": "biweekly",
+                "customer_id": 1,
+                "tea_id": 4
+            }
+        },
+        {
+            "id": "14",
+            "type": "subscription",
+            "attributes": {
+                "title": "Incredibly Delicious Tea",
+                "price": 24.99,
+                "status": "active",
+                "frequency": "biweekly",
+                "customer_id": 1,
+                "tea_id": 4
+            }
+        }
+    ]
 }
 ```
 
